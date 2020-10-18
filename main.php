@@ -63,7 +63,7 @@
 							<a href="main.php?pagina=listamedico"> Lista medico</a>
 							</li>
 							<li>
-							<a href="main.php?pagina=listatrabajadores"> Lista Trabajadores</a>
+							<a href="main.php?pagina=listapaciente">Lista Paciente</a>
 							</li>
 							<li>
 							<a href="main.php?pagina=newtrabajador"> Nuevo Trabajador</a>
