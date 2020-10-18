@@ -126,6 +126,7 @@
             $id_medico = $_POST['id_medico']; 
                       
             $sql = " DELETE from medico where id_medico ='$id_medico' "; 
+            
             $insert = pg_query($sql); 
                          
             if($insert)
