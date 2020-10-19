@@ -22,8 +22,12 @@
             <input name="ape_medico" labelPosition="top" class="easyui-textbox" required="true" label="Apellido medico:" style="width:80%" >
         </div>   
             
-        <div style="margin-bottom:5px">
-            <input name="sexo_medico" labelPosition="top" class="easyui-textbox" label="Sexo:" style="width:80%" >
+        <div style="margin-bottom:5px" >
+            <select name="sexo_medico" labelPosition="top" class="easyui-combobox" label="Sexo:" style="width:80%" >
+                <option value=""></option>
+                <option value="Masculino">Masculino</option>
+                <option value="Femenino">Femenino</option>
+            </select>
         </div>   
 
         <div style="margin-bottom:5px">
