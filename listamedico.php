@@ -18,8 +18,8 @@
     <input class="easyui-searchbox" data-options="prompt:'Buscar' " style="width:250px">
     <a  href="main.php?pagina=newmedico" class="easyui-linkbutton" iconCls="icon-add" plain="true"  >Nuevo</a>
     <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-edit" plain="true" onclick="editUser()">Editar</a>
-    <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-tip" plain="true" onclick="verDetalle()">Ver a Detalle</a>
     <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-remove" plain="true" onclick="destroyUser()">Eliminar</a>
+    <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-tip" plain="true" onclick="verDetalle()">Ver a Detalle</a>
     <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-reload" plain="true" onclick="refrescar()">Refrescar</a>
 </div>
     
