@@ -14,21 +14,6 @@ if( !isset($op) )
 }
 switch ($op) {
     
-       /* $resultqry = mysqli_query($dbconn, 'SELECT * FROM especialidad' );
-        if (!$resultqry) {
-        echo json_encode("Ocurrió un error en la consulta");
-        exit;
-        }
-        $result = array();
-        $items = array();  
-     
-        while($row = mysqli_fetch_object($resultqry)) {
-            array_push($items, $row);
-           
-        }
-        $result[ = $items;
-        echo json_encode($result);
-       */
       case 'select':
         $resultqry = pg_query($dbconn, 'SELECT * FROM especialidad');
         if (!$resultqry) {
@@ -54,9 +39,9 @@ switch ($op) {
         );          
         try{ 
             $id_especialidad = $_POST['id_especialidad']; 
-            $nombre_especialidad = $_POST['nombre_especialidad'];   
-            $observacion= $_POST['observacion']; 
-            $sql = "INSERT INTO especialidad (id_especialidad, nombre_especialidad, observacion) VALUES   ('$id_especialidad','$nombre_especialidad ', ' $observacion');"; 
+            $nom_especialidad = $_POST['nom_especialidad'];   
+            $obs_especialidad= $_POST['obs_especialidad']; 
+            $sql = "INSERT INTO especialidad (id_especialidad, nom_especialidad, obs_especialidad) VALUES   ('$id_especialidad','$nom_especialidad ', ' $obs_especialidad');"; 
             $insert = pg_query($dbconn,$sql); 
              
              
@@ -69,7 +54,7 @@ switch ($op) {
             catch (Exception $e){ //usar logs
                 $response = array( 
                     'status' => 0, 
-                    'msg' =>  'El Cliente ya existe'  
+                    'msg' =>  'La especialidad ya existe'  
                 );           
             }
             echo json_encode($response); 
@@ -80,12 +65,12 @@ switch ($op) {
                       'status' => 0, 
                       'msg' =>  '  Se produjeron algunos problemas. Inténtalo de nuevo.' 
                   );          
-                  if(!empty($_POST['id_especialidad']) && !empty($_POST['nombre_especialidad']) && !empty($_POST['observacion']) ){ 
+                  if(!empty($_POST['id_especialidad']) && !empty($_POST['nom_especialidad']) && !empty($_POST['obs_especialidad']) ){ 
                         $id_especialidad = $_POST['id_especialidad']; 
-                        $nombre_especialidad = $_POST['nombre_especialidad'];   
-                        $observacion= $_POST['observacion']; 
+                        $nom_especialidad = $_POST['nom_especialidad'];   
+                        $obs_especialidad= $_POST['obs_especialidad']; 
                        
-                      $sql = "UPDATE especialidad SET nombre_especialidad='$nombre_especialidad',observacion='$observacion'"; 
+                      $sql = "UPDATE especialidad SET nom_especialidad='$nom_especialidad',obs_especialidad='$obs_especialidad' WHERE id_especialidad=$id_especialidad"; 
                       $update = pg_query($sql); 
                        
                       if($update){ 

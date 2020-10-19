@@ -4,14 +4,14 @@
 
            
             <div style="margin-bottom:5px">
-                <input name="id_especialidad" labelPosition="top" class="easyui-textbox" required="true" label="Cedula Cliente:" style="width:80%" >
+                <input name="id_especialidad" labelPosition="top" class="easyui-textbox" required="true" label="Id Especialidad:" style="width:80%" >
             </div> 
            
             <div style="margin-bottom:5px">
-                <input name="nombre_especialidad" labelPosition="top" class="easyui-textbox" required="true" label="Cedula Cliente:" style="width:80%" >
+                <input name="nom_especialidad" labelPosition="top" class="easyui-textbox" required="true" label="Nombre de Especialidad:" style="width:80%" >
             </div>           
             <div style="margin-bottom:5px">
-                <input name="observacion" labelPosition="top" class="easyui-textbox" required="true" label="Nombre Cliente:" style="width:80%" >
+                <input name="obs_especialidad" labelPosition="top" class="easyui-textbox" required="true" label="Observacion:" style="width:80%" >
             </div>   
 
             <!--<div style="margin-bottom:5px">
@@ -41,7 +41,7 @@
 
        function saveUser(){              
            $('#frmUSuario').form('submit',{
-                url: 'controlador/cliente.php?op=insert',
+                url: 'controlador/especialidad.php?op=insert',
                 onSubmit: function(){
                     var esvalido =  $(this).form('validate');
                     if( esvalido){
@@ -65,7 +65,7 @@
                         $('#dlg').dialog('close');      
                         $('#dg').datagrid('reload');   
                     }
-                    window.location.href= 'main.php?pagina=listacliente';
+                    window.location.href= 'main.php?pagina=listaespecialidad';
                 }
             }); 
         }
