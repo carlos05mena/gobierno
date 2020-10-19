@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
-	<title>GOB</title>
+	<title>LEGIS & CO</title>
  
     <link rel="stylesheet" type="text/css" href="js/jquery-easyui-1.8.8/themes/black/easyui.css">
 	<link rel="stylesheet" type="text/css" href="js/jquery-easyui-1.8.8/themes/icon.css">
@@ -10,6 +10,7 @@
     <script type="text/javascript" src="js/jquery-easyui-1.8.8/jquery.min.js"></script>
     <script type="text/javascript" src="js/jquery-easyui-1.8.8/jquery.easyui.min.js"></script>
 	<script type="text/javascript" src="js/jquery-easyui-1.8.8/locale/easyui-lang-es.js"></script>
+	
 	
 </head>
 <?/*php
@@ -19,6 +20,7 @@
 */?>
 <body style = "background-color:#28293D;" class="easyui-layout" >
           
+ 
         <div data-options="region:'north'" style="height:60px"> 
         <img src="imagenes/firma.png"   height="100px"  > </img>
          <div class="titulousuario">
@@ -49,30 +51,35 @@
 							<a href="main.php?pagina=newusuario"> Nuevo Usuario</a>
 							</li>
 							<li>
-							<a  href="main.php?pagina=listausuario">  Lista de Usuarios</a> 
+							<a  href="main.php?pagina=listausuario">  Especialidades</a> 
 							</li>
 						</ul>
 					</li>
 					<li>
-						<span>medicos</span>
+						<span>Clientes</span>
 						<ul>
 							<li>
-							<a href="main.php?pagina=newmedico"> Nuevo medico</a>
+							<a href="main.php?pagina=newcliente"> Nuevo Paciente</a>
 							</li>
 							<li>
-							<a href="main.php?pagina=listamedico"> Lista medico</a>
+							<a href="main.php?pagina=listapacientes"> Lista Pacientes</a>
+						
 							</li>
 							<li>
-							<a href="main.php?pagina=listatrabajadores"> Lista Trabajadores</a>
+<<<<<<< HEAD
+							<a href="main.php?pagina=listaespecialidad"> Lista Especialidades</a>
+=======
+							<a href="main.php?pagina=listapaciente">Lista Paciente</a>
+>>>>>>> 39a585b186b437b4e6f398f6a716feb914256b7e
 							</li>
 							<li>
-							<a href="main.php?pagina=newtrabajador"> Nuevo Trabajador</a>
+							<a href="main.php?pagina=newtrabajador"> Nuevo Medico</a>
 							</li>
 							<li>
 							<a href="main.php?pagina=newjuez"> Nuevo Juez</a>							
 							</li>
 							<li>
-							<a href="main.php?pagina=listajuez"> Lista Jueces</a>
+							<a href="main.php?pagina=listamedico"> Lista de Medicos</a>
 							</li>
 							<li>
 							<a href="main.php?pagina=listacontra"> Lista Contrapartes</a>
