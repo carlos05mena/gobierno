@@ -66,11 +66,7 @@
 						
 							</li>
 							<li>
-<<<<<<< HEAD
 							<a href="main.php?pagina=listaespecialidad"> Lista Especialidades</a>
-=======
-							<a href="main.php?pagina=listapaciente">Lista Paciente</a>
->>>>>>> 39a585b186b437b4e6f398f6a716feb914256b7e
 							</li>
 							<li>
 							<a href="main.php?pagina=newtrabajador"> Nuevo Medico</a>

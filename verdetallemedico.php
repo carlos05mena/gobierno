@@ -15,7 +15,7 @@ if( isset($_GET["id"])   )
     <table border="2">
         <thead> 
             
-            <tr><th>Identificador:</th><td><?php echo $row ['id_medico']?></td><th>Cedula:</th><td><?php echo $row ['cedula_medico']?></td> </tr>
+            <tr><th>Identificador:</th><td><?php echo $row ['id_medico']?></td> </tr>
             <tr><th>Nombres:  <?php echo $row ['nombres_medico'] ?> </th><th field="apellidos_medico" width="100">Apellidos:  <?php echo $row ['apellidos_medico'] ?></th></tr>
             <tr><th>Sexo:   <?php echo $row ['sexo_medico'] ?> </th><th field="edad_medico" width="100">Edad:  <?php echo $row ['edad_medico'] ?></th></tr>
             <tr><th>Sexo:   <?php echo $row ['sexo_medico'] ?> </th><th field="edad_medico" width="100">Edad:  <?php echo $row ['edad_medico'] ?></th></tr>
