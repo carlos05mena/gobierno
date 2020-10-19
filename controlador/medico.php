@@ -9,10 +9,11 @@
     $op=  $_GET['op'] ;
     if( !isset($op) )
     {
-    echo  json_encode( "No se definió  la variable op");
-    exit;
+        echo  json_encode( "No se definió  la variable op");
+        exit;
     }
-    switch ($op) {
+    switch ($op) 
+    {
       case 'select':
         $resultqry = pg_query($dbconn, 'SELECT * FROM medico');
         if (!$resultqry) 
@@ -56,7 +57,7 @@
              
             
             $sql = "INSERT INTO medico (id_medico, ced_medico, nom_medico, ape_medico, sexo_medico, dir_medico, edad_medico, fecha_nac_medico, cel_medico, telf_medico, telf_ext_medico, mail_medico, id_especialidad) 
-                    VALUES   ($id_medico, '$ced_medico ', ' $nom_medico', '$ape_medico', '$sexo_medico', '$dir_medico', $edad_medico, '$fecha_nac_medico', '$cel_medico', '$telf_medico', '$telf_ext_medico', '$mail_medico', $id_especialidad);"; 
+                    VALUES   ('$id_medico', '$ced_medico ', ' $nom_medico', '$ape_medico', '$sexo_medico', '$dir_medico', '$edad_medico', '$fecha_nac_medico', '$cel_medico', '$telf_medico', '$telf_ext_medico', '$mail_medico', '$id_especialidad');"; 
             $insert = pg_query($dbconn,$sql); 
              
             if($insert)
@@ -67,7 +68,7 @@
         }
 
         catch (Exception $e)
-        { //usar logs
+        { 
             $response = array( 
                 'status' => 0, 
                 'msg' =>  'Este registro ya existe'  
@@ -76,13 +77,31 @@
         echo json_encode($response); 
     break; 
 
+    case 'verdetalle':
+        $resultqry = pg_query($dbconn, 'SELECT * FROM medico');
+        if (!$resultqry) 
+        {
+            echo json_encode("Ocurrió un error en la consulta");
+            exit;
+        }
+        $result = array();
+        $items = array();  
+     
+        while($row = pg_fetch_object($resultqry)) 
+        {
+           array_push($items, $row);
+        }
+        $result["rows"] = $items;
+        echo json_encode($result);
+    break;
+
     case 'update':
         $response = array( 
             'status' => 0, 
             'msg' =>  '  Se produjeron algunos problemas. Inténtalo de nuevo.' 
         );          
             
-        if(!empty($_POST['ced_medico']) && !empty($_POST['nom_medico']) && !empty($_POST['ape_medico']) && !empty($_POST['sexo_medico']) && !empty($_POST['dir_medico']) && !empty($_POST['']) && !empty($_POST['edad_medico']) && !empty($_POST['fecha_nac_medico']) && !empty($_POST['cel_medico']) && !empty($_POST['telf_medico']) && !empty($_POST['mail_medico']) && !empty($_POST['id_medico']) && !empty($_POST['id_especialidad']) && !empty($_POST['telf_ext_medico']) )
+        if(!empty($_POST['id_medico']) && !empty($_POST['ced_medico']) && !empty($_POST['nom_medico']) && !empty($_POST['ape_medico']) && !empty($_POST['sexo_medico']) && !empty($_POST['dir_medico']) && !empty($_POST['']) && !empty($_POST['edad_medico']) && !empty($_POST['fecha_nac_medico']) && !empty($_POST['cel_medico']) && !empty($_POST['telf_medico'])&& !empty($_POST['telf_ext_medico']) && !empty($_POST['mail_medico']) && !empty($_POST['id_especialidad'])  )
         { 
             $id_medico = $_POST['id_medico']; 
             $ced_medico = $_POST['ced_medico'];   
@@ -98,7 +117,7 @@
             $mail_medico= $_POST['mail_medico']; 
             $id_especialidad= $_POST['id_especialidad']; 
 
-            $sql = "UPDATE medico SET id_medico=$id_medico, ced_medico='$ced_medico', nom_medico='$nom_medico', ape_medico='$ape_medico', sexo_medico='$sexo_medico', dir_medico='$dir_medico', edad_medico=$edad_medico, fecha_nac_medico='$fecha_nac_medico', cel_medico='$cel_medico', telf_medico='$telf_medico', telf_ext_medico='$telf_ext_medico', mail_medico='$mail_medico', id_especialidad=$id_especialidad "; 
+            $sql = "UPDATE medico SET id_medico='$id_medico', ced_medico='$ced_medico', nom_medico='$nom_medico', ape_medico='$ape_medico', sexo_medico='$sexo_medico', dir_medico='$dir_medico', edad_medico='$edad_medico', fecha_nac_medico='$fecha_nac_medico', cel_medico='$cel_medico', telf_medico='$telf_medico', telf_ext_medico='$telf_ext_medico', mail_medico='$mail_medico', id_especialidad='$id_especialidad'"; 
             $update = pg_query($sql); 
                        
             if($update)
@@ -126,7 +145,7 @@
             $id_medico = $_POST['id_medico']; 
                       
             $sql = " DELETE from medico where id_medico ='$id_medico' "; 
-            
+
             $insert = pg_query($sql); 
                          
             if($insert)
