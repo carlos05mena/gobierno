@@ -3,33 +3,37 @@ require ('controlador/coneccion.php');
 if( isset($_GET["id"])   )
 {
     $id=$_GET["id"];
-    $sql = "SELECT * FROM  medico where id_medico=$id";
+    $sql = "SELECT medico.*, especialidad.id_especialidad,especialidad.nom_especialidad FROM  medico,especialidad where medico.id_especialidad=especialidad.id_especialidad and id_medico=$id";
     $result = pg_query($dbconn, $sql);
     
-    $row = pg_fetch_assoc($result) ;
-    
+    $row = pg_fetch_assoc($result) ;    
 }
 ?>
 <div id="$id" class="easyui-panel" title="Ingreso de datos" style="width:100%;height:100%; ">
 <form id="frmespecialidad" method="post"     style="margin:0;padding:20px 50px">
-    <table border="2">
+ <center>   <table border="2">
         <thead> 
             
-            <tr><th>Identificador:</th><td><?php echo $row ['id_medico']?></td> </tr>
-            <tr><th>Nombres:  <?php echo $row ['nombres_medico'] ?> </th><th field="apellidos_medico" width="100">Apellidos:  <?php echo $row ['apellidos_medico'] ?></th></tr>
-            <tr><th>Sexo:   <?php echo $row ['sexo_medico'] ?> </th><th field="edad_medico" width="100">Edad:  <?php echo $row ['edad_medico'] ?></th></tr>
-            <tr><th>Sexo:   <?php echo $row ['sexo_medico'] ?> </th><th field="edad_medico" width="100">Edad:  <?php echo $row ['edad_medico'] ?></th></tr>
-            
-            <tr><th field="direccion_medico" width="100">Direccion</th><th field="referencia_direccion" width="100">Referencia domiciliaria</th></tr>
-            <tr><th field="fecha_nacimiento" width="100">Fecha de nacimiento</th><th field="lugar_nacimiento" width="100">Lugar de nacimiento</th></tr>
-            <tr><th field="telefono_medico" width="100">Telefono de contacto</th><th field="telefono_fijo_medico" width="100">Número de telefono fijo</th><th field="telefono_fijo_medico" width="100">Número de telefono fijo</th></tr>
-            <tr><th field="correo_medico" width="100">Correo electrónico</th><th field="telefono_extension_medico" width="100">Número de telefono institucional</th></tr>                  
+            <tr><th>Identificador:</th><td colspan="5"><?php echo $row ['id_medico']?></td> </tr>
+            <tr><td colspan="6"></td></tr>
+            <tr><th>Nombres:</th><td> <?php echo $row ['nom_medico'] ?></td>    <th>Apellidos:</th><td><?php echo $row ['ape_medico'] ?></td><th>Sexo: </th><td> <?php echo $row ['sexo_medico'] ?></td></tr>
+            <tr><td colspan="6"></td></tr>
+            <tr><th>Cedula: </th><td>  <?php echo $row ['ced_medico'] ?> </td><th>Fecha Nacimiento:</th><td> <?php echo $row ['fecha_nac_medico'] ?></td><th>Edad: </th><td> <?php echo $row ['edad_medico'] ?></td></tr>
+            <tr><td colspan="6"></td></tr>
+            <tr><th>Direccion:</th><td colspan="5"><?php echo $row ['dir_medico'] ?></td> </tr>
+            <tr><td colspan="6"></td></tr>
+            <tr><th>Telefono: </th><td>  <?php echo $row ['telf_medico'] ?> </td><th>Celular: </th><td colspan="2"> <?php echo $row ['cel_medico'] ?></td></tr>
+            <tr><td colspan="6"></td></tr>
+            <tr><th>Extension </th><td>  <?php echo $row ['telf_ext_medico'] ?> </td><th>Especialidad: </th><td colspan="2"> <?php echo $row ['nom_medico'] ?></td></tr>
+            <tr><td colspan="6"></td></tr>
+            <tr><th>Correo Electronico:</th><td><?php echo $row ['mail_medico']?></td> </tr>     
         </thead>
     
        
 			
     </table> 
+    </center>
     </form>
      
     
-    </div>
+</div>

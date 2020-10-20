@@ -10,7 +10,7 @@
 
         $sql1 = "SELECT * FROM  especialidad ";
         $result1 = pg_query($dbconn, $sql1);
-        $row1 = pg_fetch_assoc($result1) ;
+
     }
 ?>
 
@@ -31,10 +31,14 @@
 
         <div style="margin-bottom:5px">
             <input name="ape_medico" labelPosition="top" value="<?php echo $row ['ape_medico']?>" class="easyui-textbox" required="true" label="Apellidos medico:" style="width:80%" >
-        </div>   
-            
-        <div style="margin-bottom:5px">
-            <input name="sexo_medico" labelPosition="top" value="<?php echo $row ['sexo_medico']?>" class="easyui-textbox" label="Sexo medico:" style="width:80%" >
+        </div>    
+
+        <div style="margin-bottom:5px" >
+            <select name="sexo_medico" labelPosition="top" value="<?php echo $row ['sexo_medico']?>" class="easyui-combobox" label="Sexo:" style="width:80%" >
+                <option value=""></option>
+                <option value="Masculino">Masculino</option>
+                <option value="Femenino">Femenino</option>
+            </select>
         </div>   
 
         <div style="margin-bottom:5px">
@@ -101,7 +105,7 @@
                         {
                             title:'Por favor espere',
                             msg:'Cargando datos...'
-                        }
+                        } 
                     );
                 }
                 return esvalido;
